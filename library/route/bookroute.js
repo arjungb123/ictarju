@@ -1,32 +1,33 @@
 const express=require('express');
 const bookrouter=express.Router();
+const bookdata=require('./model/bookdata')
 function router(nav){
-var books=[
-    {bname:'macbath',aname:'shakesper',cat:'horror' },
-    {bname:'romeo and juliet',aname:'shakespere',cat:'romance'} 
 
- ];
 bookrouter.route('/')//routing books
-.get((req,res)=>{res.render('book',{
-    nav,
-    books,
+.get((req,res)=>{
+    bookdata.find()
+    .then(function(books){
+        res.render('book',{nav,title:"library",books});
+    });
     
-    title:"library"
+    
 
 });
     
-});
+
 bookrouter.route('/:id')//routing boooks to id,by using : id become a variable
 .get((req,res)=>{
     const id=req.params.id;
-    res.render(
-        'buk',
-        {nav,
-            
-            title:"library",
-            buk: books[id]
-        }
-    );
+    bookdata.findOne({_id:id})
+    .then(function(book){
+        res.render('buk',
+    {
+        nav,
+        title:'library',
+        book
+    });
+    
+    });
     
 });
 return bookrouter;

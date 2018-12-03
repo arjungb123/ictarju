@@ -1,0 +1,22 @@
+<div class="home">
+  {{title}}!<br>
+  <input type="text" [(ngModel)]='name'>
+  my name is{{name}}!
+  <table *ngIf = 'products && products.length'>
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>code</th>
+      </tr></thead>
+      <tbody>
+        <tr *ngFor='let product of products'>
+          <td>{{product.productid}}</td>
+          <td>{{product.productname}}</td>
+          <td>{{product.productcode}}</td>
+        </tr>
+      </tbody>
+    
+  </table>
+
+</div>

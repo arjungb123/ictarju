@@ -1,3 +1,21 @@
-<p>
-  addproduct works!
-</p>
+
+<div class="container">
+  <div class="row">
+  <div class="col-sm-6">
+      <h1>add new product</h1>
+    <form (ngSubmit)="addproduct()">
+      <input type='number' name='productId' placeholder='productId'[(ngModel)]="productitem.productId" class='form-control'><br>
+      <input type='text' name='productName' placeholder='productname'[(ngModel)]="productitem.productName" class='form-control'><br>
+      <input type='text' name='productCode' placeholder='productcode'[(ngModel)]="productitem.productCode" class='form-control'><br>
+      <input type='text' name=' releaseDate' placeholder='releasedate'[(ngModel)]="productitem.releaseDate" class='form-control'><br>
+      <input type='text' name='description' placeholder='description'[(ngModel)]="productitem.description" class='form-control'><br>
+      <input type='number' name=' price' placeholder='price'[(ngModel)]="productitem.price" class='form-control'><br>
+      <input type='text' name='starRating' placeholder='starrating'[(ngModel)]="productitem.starRating" class='form-control'><br>
+      <input type='text' name=' imageUrl' placeholder='imageurl'[(ngModel)]="productitem. imageUrl" class='form-control'><br>
+      <input type='submit' value='submit'>
+      </form>
+  </div>
+  </div>
+</div>
+  
+
